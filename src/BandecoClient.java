@@ -1,49 +1,58 @@
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-
-public class BandecoClient {
-
+public class BandecoClient implements Runnable {
 	private static final String SERVER_ADDRESS = "127.0.0.1";
-	private Socket clientSocket;
+	private ClientSocket clientSocket;
 	private Scanner scanner;
-	private PrintWriter out;
 	
 	public BandecoClient() {
-		
 		scanner = new Scanner(System.in);
 	}
 	
 	public void start() throws IOException {
-		
-		clientSocket = new Socket(SERVER_ADDRESS, BandecoServer.PORT);
-		out = new PrintWriter(clientSocket.getOutputStream(), true);
-		System.out.println("Cliente conectado ao servidor: " + SERVER_ADDRESS + ":" + BandecoServer.PORT);
+		final Socket socket = new Socket(SERVER_ADDRESS, BandecoServer.PORT);
+		clientSocket = new ClientSocket(socket);
+		System.out.println(
+	            "Cliente conectado ao servidor no endereço " + SERVER_ADDRESS +
+	            " e porta " + BandecoServer.PORT);
+		login();
+		new Thread(this).start();
 		loopMensagem();
 	}
+	
+	private void login() {
+        System.out.print("Digite seu login: ");
+        final String login = scanner.nextLine();
+        clientSocket.setLogin(login);
+        clientSocket.sendMsg(login);
+    }
 	
 	private void loopMensagem() throws IOException {
 		String msg;
 		do {
-			System.out.print("Digite uma mensagem: ");
+			System.out.print("Digite uma mensagem (ou 'sair' para encerrar): ");
 			msg = scanner.nextLine();
-			out.println(msg);
-		} while(!msg.equalsIgnoreCase("sair"));
+			clientSocket.sendMsg(msg);
+		} while(!msg.equalsIgnoreCase(msg));
+		clientSocket.close();
 	}
 	
-	public static void main (String[] args) {
-		
-		BandecoClient client = new BandecoClient();
-		
+	@Override
+    public void run() {
+        String msg;
+        while((msg = clientSocket.getMessage())!=null) {
+            System.out.println(msg);
+        }
+    }
+	
+	public static void main (String[] args) {	
 		try {
+			BandecoClient client = new BandecoClient();
 			client.start();
 		} catch (IOException ex) {
 			System.out.println("Erro ao iniciar o cliente: " + ex.getMessage());
 		}
-		
-		System.out.println("Cliente finalizado!");
 	}
-	
 }
