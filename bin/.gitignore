@@ -2,3 +2,5 @@
 /BandecoServer.class
 /NotificacoesBandeco.class
 /ClientSocket.class
+/BlockingChatClientApp.class
+/BlockingChatServerApp.class
