@@ -1,6 +1,3 @@
-/BandecoClient.class
-/BandecoServer.class
-/NotificacoesBandeco.class
-/ClientSocket.class
 /BlockingChatClientApp.class
 /BlockingChatServerApp.class
+/ClientSocket.class

@@ -110,7 +110,6 @@ public class BlockingChatServerApp {
             stop();
         }
     }
-
     /**
      * Método executado sempre que um cliente conectar ao servidor.
      * O método fica em loop aguardando mensagens do cliente,
