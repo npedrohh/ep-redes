@@ -2,6 +2,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.SocketAddress;
 import java.net.SocketException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -29,9 +30,16 @@ public class BlockingChatServerApp {
      * Lista de todos os clientes conectados ao servidor.
      */
     private final List<ClientSocket> clientSocketList;
-
+    
+    private HashMap<String, String> bandecos = new HashMap<String, String>();
+    
     public BlockingChatServerApp() {
         clientSocketList = new LinkedList<>();
+  	
+ 		bandecos.put("EACH", "1");
+ 		bandecos.put("Central", "2");
+ 		bandecos.put("Quimica", "3");
+ 		bandecos.put("Fisica", "4");
     }
 
     /**
@@ -131,14 +139,22 @@ public class BlockingChatServerApp {
                 if(clientSocket.getLogin() == null){
                     clientSocket.setLogin(msg);
                     System.out.println("Cliente "+ clientIP + " logado como " + clientSocket.getLogin() +".");
-                    msg = "Cliente " + clientSocket.getLogin() + " logado.";
+                    msg = "Cliente " + clientSocket.getLogin() + " logado no chat";
                 }
                 else {
+                	
+                	if(clientSocket.getIdBandeco() == null) {
+                		
+                		clientSocket.setIdBandeco(msg);
+                		System.out.println(clientSocket.getLogin() + " logou no bandeco " + bandecos.get(clientSocket.getIdBandeco() + "."));
+                		msg = "Cliente " + clientSocket.getLogin() + " logou no chat " + bandecos.get(clientSocket.getIdBandeco());
+                	}
+                	
                     System.out.println("Mensagem recebida de "+ clientSocket.getLogin() +": " + msg);
-                    msg = clientSocket.getLogin() + " diz: " + msg;
+                    msg = "[" + clientSocket.getLogin() + "]: " + msg;
                 };
 
-                sendMsgToAll(clientSocket, msg);
+                enviarMensagemParaChat(clientSocket, msg);
             }
         } finally {
             clientSocket.close();
@@ -162,7 +178,8 @@ public class BlockingChatServerApp {
      * @param sender cliente que enviou a mensagem
      * @param msg mensagem recebida. Exemplo de mensagem: "Olá pessoal"
      */
-    private void sendMsgToAll(final ClientSocket sender, final String msg) {
+    @SuppressWarnings("unused")
+	private void sendMsgToAll(final ClientSocket sender, final String msg) {
         final Iterator<ClientSocket> iterator = clientSocketList.iterator();
         int count = 0;
         
@@ -182,6 +199,28 @@ public class BlockingChatServerApp {
         System.out.println("Mensagem encaminhada para " + count + " clientes");
     }
 
+    private void enviarMensagemParaChat(final ClientSocket sender, final String msg) {
+        final Iterator<ClientSocket> iterator = clientSocketList.iterator();
+        int count = 0;
+        
+        /*Percorre a lista usando o iterator enquanto existir um próxima elemento (hasNext)
+        para processar, ou seja, enquanto não percorrer a lista inteira.*/
+        while (iterator.hasNext()) {
+            //Obtém o elemento atual da lista para ser processado.
+            final ClientSocket client = iterator.next();
+            
+            if(client.getIdBandeco() == null) continue;
+            /*Verifica se o elemento atual da lista (cliente) não é o cliente que enviou a mensagem.
+            Se não for, encaminha a mensagem pra tal cliente.*/
+            if (!client.equals(sender) && client.getIdBandeco().equals(sender.getIdBandeco())) {
+                if(client.sendMsg(msg))
+                    count++;
+                else iterator.remove();
+            }
+        }
+        System.out.println("Mensagem encaminhada para " + count + " clientes");
+    }
+    
     /**
      * Fecha o socket do servidor quando a aplicação estiver sendo finalizada.
      */

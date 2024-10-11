@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
-import java.util.HashMap;
 /**
  * Aplicação cliente de chat utilizando a classe {@link Socket},
  * que permite apenas requisições bloqueantes (blocking).
@@ -97,18 +96,18 @@ public class BlockingChatClientApp implements Runnable {
     
     // adiciona a função que verifica qual o bandeco que o cliente gostaria de se conectar;
   public void escolherBandeco() {	
-    	final String id;
-    	HashMap<String, Integer> bandecoUsp = new HashMap<String, Integer>();
- 		bandecoUsp.put("Each", 1);
- 		bandecoUsp.put("Central", 2);
- 		bandecoUsp.put("Quimica", 3);
- 		bandecoUsp.put("Fisica", 4);
+    	final String idBandeco;
  	
-				System.out.println("Digite o id de seu campus: \n" + bandecoUsp);
-				id = scanner.nextLine();
-				clientSocket.setId(id);
-				clientSocket.sendMsg(id);
-			}    
+		System.out.println("Digite o id do seu bandeco favorito:");
+		System.out.println("1 - EACH");
+		System.out.println("2 - Central");
+		System.out.println("3 - Químicas");
+		System.out.println("4 - Física");
+		idBandeco = scanner.nextLine();
+		clientSocket.setIdBandeco(idBandeco);
+		clientSocket.sendMsg(idBandeco);
+	}    
+  
     /**
      * Inicia o loop de envio e recebimento de mensagens.
      * O loop é interrompido quando o usuário digitar "sair".

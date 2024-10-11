@@ -4,7 +4,7 @@ import java.net.SocketAddress;
 
 public class ClientSocket implements Closeable {
     private String login;
-    private String id;
+    private String idBandeco;
     private final Socket socket;
     private final BufferedReader in;
     private final PrintWriter out;
@@ -37,12 +37,12 @@ public class ClientSocket implements Closeable {
         return login;
     }
     
-    public void setId(final String id) {
-    	this.id = id;
+    public void setIdBandeco(final String idBandeco) {
+    	this.idBandeco = idBandeco;
     }
     
-    public String getId() {
-    	return id;
+    public String getIdBandeco() {
+    	return idBandeco;
     }
 
     @Override
