@@ -2,10 +2,15 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.SocketAddress;
 import java.net.SocketException;
+import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Aplicação servidora de chat utilizando a classe {@link ServerSocket}, 
@@ -33,9 +38,12 @@ public class BlockingChatServerApp {
     
     private HashMap<String, String> bandecos = new HashMap<String, String>();
     
+    private ScheduledExecutorService scheduler;
+    
     public BlockingChatServerApp() {
         clientSocketList = new LinkedList<>();
-  	
+        this.scheduler = Executors.newScheduledThreadPool(1);
+        
  		bandecos.put("EACH", "1");
  		bandecos.put("Central", "2");
  		bandecos.put("Quimica", "3");
@@ -69,6 +77,7 @@ public class BlockingChatServerApp {
         System.out.println(
                 "Servidor de chat bloqueante iniciado no endereço " + serverSocket.getInetAddress().getHostAddress() +
                 " e porta " + PORT);
+        scheduler.scheduleAtFixedRate(this::estaAberto, 0, 60500, TimeUnit.MILLISECONDS);
         clientConnectionLoop();
     }
 
@@ -224,6 +233,36 @@ public class BlockingChatServerApp {
     /**
      * Fecha o socket do servidor quando a aplicação estiver sendo finalizada.
      */
+    
+    // a função está aberto verifica o horário atual e compara com os horarios de abertura e fechamento do bandeco, além de verificar se falta 30 minutos para fechamento ou abertura do mesmo.
+    private void estaAberto() {
+		 LocalTime now = LocalTime.now();
+
+	        if (estaDentroIntervalo(now, LocalTime.of(17, 00, 00), 30) || 
+	        		estaDentroIntervalo(now, LocalTime.of(10, 45, 00), 30) || 
+	        		estaDentroIntervalo(now, LocalTime.of(6, 30, 00), 30)) {
+	            System.out.println("Bandeco abre em meia hora!");
+	        } else if (estaDentroIntervalo(now, LocalTime.of(15, 35, 00), 30) || 
+	        		estaDentroIntervalo(now, LocalTime.of(11, 15, 00), 30) || 
+	        		estaDentroIntervalo(now, LocalTime.of(07, 00, 00), 30)) {
+	            System.out.println("Bandeco abriu!");
+	        } else if (estaDentroIntervalo(now, LocalTime.of(19, 15, 00), 30) || 
+	        		estaDentroIntervalo(now, LocalTime.of(13, 45, 00), 30) || 
+	        		estaDentroIntervalo(now, LocalTime.of(8, 0, 00), 30)) {
+	        	System.out.println("Bandeco fecha em meia hora!");
+	        } else if (estaDentroIntervalo(now, LocalTime.of(19, 45, 00), 30) || 
+	        		estaDentroIntervalo(now, LocalTime.of(14, 15, 00), 30) || 
+	        		estaDentroIntervalo(now, LocalTime.of(8, 30, 00), 30)) {
+	        	System.out.println("Bandeco fechou!");
+	        }
+	    }
+
+    // verifica um intervalo de 30 segundos antes e depois do horário do bandeco, para garantirmos que a mensagem seja entregue aos usuários.
+	private boolean estaDentroIntervalo(LocalTime time, LocalTime target, long minutes) {
+	    return Math.abs(ChronoUnit.SECONDS.between(time, target)) <= minutes;
+	}
+	
+	
     private void stop()  {
         try {
             System.out.println("Finalizando servidor");
