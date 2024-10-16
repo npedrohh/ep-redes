@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class BandecoCliente implements Runnable {
     //public static String ENDERECO_SERVIDOR = "192.168.1.33"; // Endereço da aplicação do servidor
     public static String ENDERECO_SERVIDOR = "127.0.0.1"; // Para testes no mesmo computador
-    public static int PORTA_SERVIDOR = 5420; // Porta de funcionamento da aplicação do servidor
+    public static int PORTA_SERVIDOR = 4000; // Porta de funcionamento da aplicação do servidor
     private SocketCliente socketCliente; // Socket do cliente
     private Scanner scanner; // Objeto utilizado para ler a entrada do usuário
 
@@ -96,8 +96,10 @@ public class BandecoCliente implements Runnable {
     public void run() {
         Mensagem mensagem;
 
-        while ((mensagem = socketCliente.recebeMensagem()) != null) {
-            System.out.println(mensagem);
+        while((mensagem = socketCliente.recebeMensagem())!=null) {
+
+            Menu.adicionarAoBuffer(mensagem);
+            Menu.atualizar();
         }
     }
 }

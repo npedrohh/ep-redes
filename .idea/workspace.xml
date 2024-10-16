@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e752974-cabc-4d00-b4d0-24d5eac655ae" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/BandecoCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/BandecoCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BandecoServidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/BandecoServidor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SocketCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/SocketCliente.java" afterDir="false" />
+    <list default="true" id="7e752974-cabc-4d00-b4d0-24d5eac655ae" name="Changes" comment="sim">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/BandecoCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/BandecoCliente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,37 +56,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.BandecoCliente (2).executor": "Run",
-    "Application.BandecoCliente.executor": "Run",
-    "Application.BandecoServidor.executor": "Run",
-    "Application.BlockingChatClientApp.executor": "Run",
-    "Application.BlockingChatServerApp.executor": "Run",
-    "Application.ClienteBandeco.executor": "Run",
-    "Application.ServidorBandeco.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "ajuste-codigo",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "H:/Meu Drive/4° Semestre/Redes de Computadores/ep-redes",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "build.tools",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BandecoCliente (2).executor&quot;: &quot;Run&quot;,
+    &quot;Application.BandecoCliente.executor&quot;: &quot;Run&quot;,
+    &quot;Application.BandecoServidor.executor&quot;: &quot;Run&quot;,
+    &quot;Application.BlockingChatClientApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.BlockingChatServerApp.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ClienteBandeco.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ServidorBandeco.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ajuste-codigo&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;H:/Meu Drive/4° Semestre/Redes de Computadores/ep-redes&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="Application.BandecoCliente">
     <configuration name="BandecoCliente" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="22" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="app.BandecoCliente" />
-      <module name="ep-redes" />
+      <module name="ajuste-codigo" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BandecoServidor" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="app.BandecoServidor" />
+      <module name="ajuste-codigo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.BandecoCliente" />
+      <item itemvalue="Application.BandecoServidor" />
+    </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -127,6 +140,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="sim" />
+    <option name="LAST_COMMIT_MESSAGE" value="sim" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
