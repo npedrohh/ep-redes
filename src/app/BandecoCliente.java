@@ -14,7 +14,7 @@ public class BandecoCliente implements Runnable {
     public static String ENDERECO_SERVIDOR = "127.0.0.1"; // Para testes no mesmo computador
     public static int PORTA_SERVIDOR = 4000; // Porta de funcionamento da aplicação do servidor
     private SocketCliente socketCliente; // Socket do cliente
-    private Scanner scanner; // Objeto utilizado para ler a entrada do usuário
+    private final Scanner scanner; // Objeto utilizado para ler a entrada do usuário
 
     // Método principal da classe, chamado quando o código é executado
     public static void main(String[] args) {
@@ -34,7 +34,7 @@ public class BandecoCliente implements Runnable {
     // Inicializa a aplicação do cliente
     private void start() throws IOException {
         // this.socketCliente = new SocketCliente(new Socket(ENDERECO_SERVIDOR, PORTA_SERVIDOR)); // Criação do socket
-        this.socketCliente = new SocketCliente(new Socket(ENDERECO_SERVIDOR, BandecoServidor.PORTA)); // Para testes no mesmo computador
+        this.socketCliente = new SocketCliente(new Socket(ENDERECO_SERVIDOR, PORTA_SERVIDOR)); // Para testes no mesmo computador
 
         System.out.println("Cliente conectado ao servidor no endereço " + ENDERECO_SERVIDOR + ":" + BandecoServidor.PORTA);
 
@@ -62,11 +62,12 @@ public class BandecoCliente implements Runnable {
 
         // Realiza a conexão com um dos bandecos
         final String idBandeco;
-        System.out.println("Lista de bandecos\n" +
-                            "1 - EACH\n" +
-                            "2 - Central\n" +
-                            "3 - Químicas\n" +
-                            "4 - Física");
+        System.out.println("""
+                            Lista de bandecos
+                            1 - EACH
+                            2 - Central
+                            3 - Químicas
+                            4 - Física""");
         System.out.println("Digite o ID do bandejão que deseja se conectar: ");
 
         idBandeco = scanner.nextLine();
