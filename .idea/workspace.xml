@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7e752974-cabc-4d00-b4d0-24d5eac655ae" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/BandecoCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/BandecoCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BandecoServidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/BandecoServidor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SocketCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/SocketCliente.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;kaueolivr&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/npedrohh/ep-redes.git&quot;,
+    &quot;accountId&quot;: &quot;0e75c839-5f94-4977-a223-b240e8bf2c7d&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/BandecoServidor.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2nH2Gol5tCBak7Jh6XzZiOLezBg" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.BandecoCliente (2).executor": "Run",
+    "Application.BandecoCliente.executor": "Run",
+    "Application.BandecoServidor.executor": "Run",
+    "Application.BlockingChatClientApp.executor": "Run",
+    "Application.BlockingChatServerApp.executor": "Run",
+    "Application.ClienteBandeco.executor": "Run",
+    "Application.ServidorBandeco.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "ajuste-codigo",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "H:/Meu Drive/4° Semestre/Redes de Computadores/ep-redes",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "build.tools",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="BandecoCliente" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.BandecoCliente" />
+      <module name="ep-redes" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7e752974-cabc-4d00-b4d0-24d5eac655ae" name="Changes" comment="" />
+      <created>1728615591748</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1728615591748</updated>
+      <workItem from="1728615592854" duration="159000" />
+      <workItem from="1728615765325" duration="38000" />
+      <workItem from="1728615814533" duration="1554000" />
+      <workItem from="1728678931428" duration="2199000" />
+      <workItem from="1728763430376" duration="4740000" />
+      <workItem from="1728947103707" duration="4057000" />
+      <workItem from="1728992309089" duration="587000" />
+      <workItem from="1728992994143" duration="321000" />
+      <workItem from="1729030604740" duration="248000" />
+      <workItem from="1729030859955" duration="226000" />
+      <workItem from="1729031128545" duration="17000" />
+      <workItem from="1729031149361" duration="69000" />
+      <workItem from="1729031231493" duration="134000" />
+      <workItem from="1729031368386" duration="6087000" />
+      <workItem from="1729053651360" duration="1108000" />
+      <workItem from="1729054779684" duration="335000" />
+      <workItem from="1729055126776" duration="1910000" />
+      <workItem from="1729080049126" duration="3208000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
