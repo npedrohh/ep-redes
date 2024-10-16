@@ -2,20 +2,16 @@ package utils;
 
 import java.io.IOException;
 import java.util.LinkedList;
-import java.util.Scanner;
 
 public class Menu {
 
-    private static LinkedList<Mensagem> buffer = new LinkedList<Mensagem>();
+    private static final LinkedList<Mensagem> buffer = new LinkedList<>();
 
     public Menu(){
 
     }
 
     private static void limpaConsole() throws IOException, InterruptedException {
-
-        Scanner scanner = new Scanner(System.in);
-        String texto = scanner.next();
 
         //Limpa a tela no windows, no linux e no MacOS
         if (System.getProperty("os.name").contains("Windows"))
@@ -27,7 +23,7 @@ public class Menu {
 
     public static void adicionarAoBuffer(Mensagem msg){
 
-        if(buffer.size() > 10){
+        if(buffer.size() >= 10){
 
             buffer.removeFirst();
         }

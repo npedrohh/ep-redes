@@ -1,5 +1,6 @@
 package app;
 
+import utils.BandecosLista;
 import utils.Mensagem;
 import utils.SocketCliente;
 
@@ -12,7 +13,6 @@ import java.net.SocketException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -22,7 +22,6 @@ public class BandecoServidor {
     public static int PORTA = 4000; // Porta de funcionamento do servidor
     private static ServerSocket socketServidor; // Socket do servidor
     private static LinkedList<SocketCliente> listaClientes; // Lista dos clientes conectados ao servidor
-    private static HashMap<String, String> bandecos; // Objeto que armazena o nome e id dos bandecos disponíveis
     private ScheduledExecutorService scheduler; // COMENTAR
 
     // Método principal da classe, chamado quando o código é executado
@@ -41,26 +40,20 @@ public class BandecoServidor {
 
     // Construtor da classe
     public BandecoServidor() {
-        listaClientes = new LinkedList<SocketCliente>();
-        bandecos = new HashMap<String, String>();
-        this.scheduler = Executors.newScheduledThreadPool(1);
 
-        // Definição dos bandecos disponíveis
-        bandecos.put("EACH", "1");
-        bandecos.put("Central", "2");
-        bandecos.put("Quimica", "3");
-        bandecos.put("Fisica", "4");
+        listaClientes = new LinkedList<SocketCliente>();
+        this.scheduler = Executors.newScheduledThreadPool(1);
     }
 
     // Inicialização do servidor
     private void start() throws IOException {
         socketServidor = new ServerSocket(PORTA);
         System.out.println("Servidor de notificações do bandeco iniciado em " + socketServidor.getInetAddress().getHostAddress() + ", na porta " + PORTA + ".");
-        scheduler.scheduleAtFixedRate(this::estaAberto, 0, 60000, TimeUnit.MILLISECONDS);
+        scheduler.scheduleAtFixedRate(this::verificaHorarioBandeco, 0, 60000, TimeUnit.MILLISECONDS);
         this.loopConexao();
     }
 
-    private void estaAberto() {
+    private void verificaHorarioBandeco() {
         LocalTime now = LocalTime.now();
         if (estaDentroIntervalo(now, LocalTime.of(19, 30, 0)) ||
                 estaDentroIntervalo(now, LocalTime.of(10, 45, 0)) ||
@@ -101,7 +94,7 @@ public class BandecoServidor {
         return Math.abs(ChronoUnit.SECONDS.between(time, target)) <= 31;
     }
 
-    // Mantém o servidor operando através de um loop infinito que aguarda conexões dos clientes e atende suas requisições
+    // Mantém o servidor operando por um loop infinito que aguarda conexões dos clientes e atende suas requisições
     private void loopConexao() throws IOException {
         try {
             while (true) {
@@ -119,6 +112,7 @@ public class BandecoServidor {
                     continue;
                 }
 
+                // Criação de uma thread para o novo cliente conectado, impedindo que o servidor fique bloqueado
                 // Criação de uma thread para o novo cliente conectado, impedindo que o servidor fique bloqueado
                 try {
                     new Thread(() -> loopMensagem(socketCliente)).start();
@@ -148,12 +142,13 @@ public class BandecoServidor {
                         socketCliente.setLogin(mensagem.getLogin());
                         socketCliente.setIdBandeco(mensagem.getConteudo());
                         System.out.println("Cliente " + clientIP + " logado como " + socketCliente.getLogin() + ".");
-                        System.out.println(socketCliente.getLogin() + " logou no bandeco " + bandecos.get(socketCliente.getIdBandeco() + "."));
+                        System.out.println(socketCliente.getLogin() + " logou no bandeco " + BandecosLista.get(socketCliente.getIdBandeco()) + ".");
                         break;
 
                     case "WHISPER":
                         // acho que funciona colocar a parte de mensagem privada aqui kaue!!
                         // perfeito pedro!
+                        // ce vai bandecar hoje? 16/10
                         break;
 
                     default:
@@ -179,7 +174,7 @@ public class BandecoServidor {
             if(cliente.enviarMensagem(mensagem)) total++;
             else iterator.remove();
         }
-        System.out.println("utils.Mensagem encaminhada para " + total + " usuários.");
+        System.out.println("Mensagem encaminhada para " + total + " usuários.");
     }
 
     // Envia uma mensagem apenas para clientes de um bandeco específico

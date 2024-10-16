@@ -10,13 +10,13 @@ import java.util.Scanner;
 
 // Cliente da aplicação em rede
 public class BandecoCliente implements Runnable {
-    //public static String ENDERECO_SERVIDOR = "192.168.1.33"; // Endereço da aplicação do servidor
+
     public static String ENDERECO_SERVIDOR = "127.0.0.1"; // Para testes no mesmo computador
     public static int PORTA_SERVIDOR = 4000; // Porta de funcionamento da aplicação do servidor
     private SocketCliente socketCliente; // Socket do cliente
     private final Scanner scanner; // Objeto utilizado para ler a entrada do usuário
 
-    // Método principal da classe, chamado quando o código é executado
+    // Função principal da classe, chamado quando o código é executado
     public static void main(String[] args) {
         try {
             BandecoCliente cliente = new BandecoCliente();
@@ -52,10 +52,12 @@ public class BandecoCliente implements Runnable {
 
         // Recebe o login da entrada do usuário, caso a entrada seja válida
         do {
-            System.out.print("Digite seu login: ");
 
             if (login.equalsIgnoreCase("servidor"))
                 System.out.println("Você é espertinho... אני אוהב את הנושא \"רשתות\" באוניברסיטת סאו פאולו");
+
+            System.out.print("Digite seu login: ");
+
         } while ((login = scanner.nextLine()).equalsIgnoreCase("servidor"));
 
         socketCliente.setLogin(login);

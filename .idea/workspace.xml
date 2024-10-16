@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7e752974-cabc-4d00-b4d0-24d5eac655ae" name="Changes" comment="sim">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="7e752974-cabc-4d00-b4d0-24d5eac655ae" name="Changes" comment="Melhorias no código: formatação do texto de escolha de bandecos e uso da variável &quot;PORTA_SERVIDOR&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/BandecoCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/BandecoCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/BandecoServidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/BandecoServidor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Mensagem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Mensagem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/SocketCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/SocketCliente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +48,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/BandecoServidor.java" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -56,29 +62,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.BandecoCliente (2).executor&quot;: &quot;Run&quot;,
-    &quot;Application.BandecoCliente.executor&quot;: &quot;Run&quot;,
-    &quot;Application.BandecoServidor.executor&quot;: &quot;Run&quot;,
-    &quot;Application.BlockingChatClientApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.BlockingChatServerApp.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ClienteBandeco.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ServidorBandeco.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;ajuste-codigo&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;H:/Meu Drive/4° Semestre/Redes de Computadores/ep-redes&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.BandecoCliente (2).executor": "Run",
+    "Application.BandecoCliente.executor": "Run",
+    "Application.BandecoServidor.executor": "Run",
+    "Application.BlockingChatClientApp.executor": "Run",
+    "Application.BlockingChatServerApp.executor": "Run",
+    "Application.ClienteBandeco.executor": "Run",
+    "Application.ServidorBandeco.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "ajuste-codigo",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "H:/Meu Drive/4° Semestre/Redes de Computadores/ep-redes",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "build.tools",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.BandecoCliente">
     <configuration name="BandecoCliente" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="22" />
@@ -136,6 +142,23 @@
       <workItem from="1729055126776" duration="1910000" />
       <workItem from="1729080049126" duration="3208000" />
     </task>
+    <task id="LOCAL-00001" summary="Correção no recebimento de mensagens">
+      <option name="closed" value="true" />
+      <created>1729095775241</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1729095775241</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Melhorias no código: formatação do texto de escolha de bandecos e uso da variável &quot;PORTA_SERVIDOR&quot;">
+      <option name="closed" value="true" />
+      <created>1729095987484</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1729095987484</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,7 +166,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="sim" />
-    <option name="LAST_COMMIT_MESSAGE" value="sim" />
+    <MESSAGE value="Correção no recebimento de mensagens" />
+    <MESSAGE value="Melhorias no código: formatação do texto de escolha de bandecos e uso da variável &quot;PORTA_SERVIDOR&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Melhorias no código: formatação do texto de escolha de bandecos e uso da variável &quot;PORTA_SERVIDOR&quot;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -2,10 +2,11 @@ package utils;
 
 import java.io.Serializable;
 
+// Classe das mensagens, que serão os objetos usados para comunicação entre cliente e servidor
 public class Mensagem implements Serializable {
-    private String tipo; // "LOGIN, "USUARIO", "SERVIDOR"
-    private String login;
-    private String conteudo;
+    private String tipo; // "LOGIN, "USUARIO", "SERVIDOR": especifica a semântica dessa mensagem
+    private String login; // Nome do usuário que enviou a mensagem
+    private String conteudo; // Conteúdo da mensagem
 
     public Mensagem(String tipo, String login, String conteudo) {
 
@@ -18,23 +19,12 @@ public class Mensagem implements Serializable {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
-    }
-
     public String getLogin() {
         return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     public String getConteudo() {
         return conteudo;
     }
 
-    public void setConteudo(String conteudo) {
-        this.conteudo = conteudo;
-    }
 }
